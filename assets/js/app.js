@@ -9,7 +9,8 @@ let resetButton = document.getElementById('reset');
 
 let compteARebours = document.getElementById('compteARebours');
 
-let Time = function (start, pause) {
+let Time = function () {
+
     this.start = function() {
 
         time = setInterval(() => {
@@ -63,13 +64,9 @@ let Time = function (start, pause) {
     })
 
 
-    startButton.addEventListener("click", () => {
-        this.start();
-    })
 
-    pauseButton.addEventListener("click", () => {
-        this.pause()
-    })
+
+
 
 
 
@@ -80,10 +77,14 @@ let compteurHours;
 let compteurMinutes;
 let compteurSeconds;
 
-let createTimer = new Time(startButton, pauseButton, resetButton)
-createTimer.start()
-createTimer.pause()
-createTimer.reset
+let createTimer = new Time()
+startButton.addEventListener("click", () => {
+    createTimer.start()
+})
+pauseButton.addEventListener("click", () => {
+    createTimer.pause()
+})
+
 
 startButton.addEventListener("click", () => {
     days.value = "";
