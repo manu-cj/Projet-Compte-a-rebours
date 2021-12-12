@@ -5,15 +5,14 @@ let seconds = document.getElementById('secondes');
 let startButton = document.getElementById('start');
 let pauseButton = document.getElementById('pause');
 let resetButton = document.getElementById('reset');
-let redemarrer = document.getElementById('redemarrer');
 
 let compteARebours = document.getElementById('compteARebours');
 
 function start() {
 
     time = setInterval(() => {
-        if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= 0){
-            compteARebours.innerHTML = '0' + compteurHours + ': ' + compteurMinutes + ': 0' + compteurSeconds;
+        if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= -1 && compteurDays >= 0){
+            compteARebours.innerHTML = compteurDays +' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
         }
         compteurSeconds--;
 
@@ -25,7 +24,12 @@ function start() {
             compteurHours--
             compteurMinutes = 60;
         }
+        if (compteurHours === -1) {
+            compteurDays--
+            compteurHours = 60;
+        }
         }, 1000)
+
 }
 
 function pause() {
@@ -37,15 +41,15 @@ let compteurMinutes;
 let compteurSeconds;
 
 startButton.addEventListener("click", () => {
-    compteurHours = parseInt(document.querySelector("#heures").value);
-    compteurMinutes = parseInt(document.querySelector("#minutes").value);
-    compteurSeconds = parseInt(document.querySelector("#secondes").value);
-    console.log(compteurHours);
+    compteurDays = parseInt(document.getElementById('jours').value);
+    compteurHours = parseInt(document.getElementById('heures').value);
+    compteurMinutes = parseInt(document.getElementById('minutes').value);
+    compteurSeconds = parseInt(document.getElementById('secondes').value);
 })
 
 
 startButton.addEventListener("click", () => {
-    start()
+        start();
 })
 
 pauseButton.addEventListener("click", () => {
@@ -58,8 +62,5 @@ resetButton.addEventListener("click", () => {
  compteurSeconds = 0;
 })
 
-redemarrer.addEventListener("click", ()=> {
-
-})
 
 
