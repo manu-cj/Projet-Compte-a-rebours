@@ -46,6 +46,7 @@ let Time = function () {
             }
 
         }, 1000)
+
     }
 
 
@@ -56,19 +57,12 @@ let Time = function () {
 
 
     startButton.addEventListener("click", () => {
-        compteurDays = parseInt(document.getElementById('jours').value);
-        compteurHours = parseInt(document.getElementById('heures').value);
-        compteurMinutes = parseInt(document.getElementById('minutes').value);
-        compteurSeconds = parseInt(document.getElementById('secondes').value);
+        compteurDays = parseInt(days.value);
+        compteurHours = parseInt(hours.value);
+        compteurMinutes = parseInt(minutes.value);
+        compteurSeconds = parseInt(seconds.value);
         console.log(compteurHours);
     })
-
-
-
-
-
-
-
 
 }
 
