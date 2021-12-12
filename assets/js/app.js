@@ -9,12 +9,12 @@ let resetButton = document.getElementById('reset');
 
 let compteARebours = document.getElementById('compteARebours');
 
-let Time = function (startButton, pauseButton, resetButton) {
-    function start() {
+let Time = function (start, pause) {
+    this.start = function() {
 
         time = setInterval(() => {
             if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= -1 && compteurDays >= 0) {
-                createDiv.innerHTML = compteurDays + ' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
+                compteARebours.innerHTML = compteurDays + ' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
             }
             if (compteurSeconds >= 61) {
                 compteurSeconds -= 61;
@@ -45,12 +45,10 @@ let Time = function (startButton, pauseButton, resetButton) {
             }
 
         }, 1000)
-        let createDiv = document.createElement("div");
-        compteARebours.appendChild(createDiv);
     }
 
 
-    function pause() {
+    this.pause = function() {
         clearInterval(time);
     }
 
@@ -66,18 +64,14 @@ let Time = function (startButton, pauseButton, resetButton) {
 
 
     startButton.addEventListener("click", () => {
-        start();
+        this.start();
     })
 
     pauseButton.addEventListener("click", () => {
-        pause()
+        this.pause()
     })
 
-    resetButton.addEventListener("click", () => {
-        compteurHours = 0;
-        compteurMinutes = 0;
-        compteurSeconds = 0;
-    })
+
 
 }
 
@@ -87,7 +81,9 @@ let compteurMinutes;
 let compteurSeconds;
 
 let createTimer = new Time(startButton, pauseButton, resetButton)
-
+createTimer.start()
+createTimer.pause()
+createTimer.reset
 
 startButton.addEventListener("click", () => {
     days.value = "";
@@ -95,4 +91,9 @@ startButton.addEventListener("click", () => {
     minutes.value = "";
     seconds.value = "";
 })
-
+resetButton.addEventListener("click", () => {
+    compteurDays = 0;
+    compteurHours = 0;
+    compteurMinutes = 0;
+    compteurSeconds = 0;
+})
