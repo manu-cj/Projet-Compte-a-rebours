@@ -1,3 +1,4 @@
+let days = document.getElementById('jours');
 let hours = document.getElementById('heures');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('secondes');
@@ -40,7 +41,12 @@ function start() {
             compteurDays--
             compteurHours = 60;
         }
+
         }, 1000)
+    days.value = "";
+    hours.value = "";
+    minutes.value = "";
+    seconds.value = "";
 
 }
 
@@ -61,7 +67,12 @@ startButton.addEventListener("click", () => {
 
 
 startButton.addEventListener("click", () => {
-        start();
+            start();
+
+
+
+
+
 })
 
 pauseButton.addEventListener("click", () => {
