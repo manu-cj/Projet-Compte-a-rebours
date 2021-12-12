@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Compte à rebours</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div id="lesBoutons">
-    <input type="text" id="jours" placeholder="jours" value="">
-    <input type="text" maxlength="2" id="heures">
-    <input type="text" maxlength="2" id="minutes">
-    <input type="text" maxlength="2"  id="secondes">
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
-    <button id="reset">Reset</button>
+    <div id="input">
+        <input type="text" id="jours" placeholder="jours">
+        <input type="text" maxlength="2" id="heures" placeholder="heures">
+        <input type="text" maxlength="2" id="minutes" placeholder="minutes">
+        <input type="text" maxlength="2" id="secondes" placeholder="secondes">
+    </div>
+    <div id="button">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="compteARebours"></div>
 </div>
 
-<div id="compteARebours"></div>
+
 
 
 <script src="assets/js/app.js"></script>
