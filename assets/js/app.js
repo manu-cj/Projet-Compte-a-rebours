@@ -27,6 +27,7 @@ function start() {
             compteurHours -=25;
             compteurDays+=1
         }
+
         compteurSeconds--;
 
         if (compteurSeconds === -1) {
@@ -63,16 +64,12 @@ startButton.addEventListener("click", () => {
     compteurHours = parseInt(document.getElementById('heures').value);
     compteurMinutes = parseInt(document.getElementById('minutes').value);
     compteurSeconds = parseInt(document.getElementById('secondes').value);
+    console.log(compteurHours);
 })
 
 
 startButton.addEventListener("click", () => {
             start();
-
-
-
-
-
 })
 
 pauseButton.addEventListener("click", () => {
