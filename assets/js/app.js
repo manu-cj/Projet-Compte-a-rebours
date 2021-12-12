@@ -14,7 +14,7 @@ let Time = function (startButton, pauseButton, resetButton) {
 
         time = setInterval(() => {
             if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= -1 && compteurDays >= 0) {
-                compteARebours.innerHTML = compteurDays + ' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
+                createDiv.innerHTML = compteurDays + ' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
             }
             if (compteurSeconds >= 61) {
                 compteurSeconds -= 61;
@@ -45,8 +45,8 @@ let Time = function (startButton, pauseButton, resetButton) {
             }
 
         }, 1000)
-
-
+        let createDiv = document.createElement("div");
+        compteARebours.appendChild(createDiv);
     }
 
 
@@ -86,8 +86,8 @@ let compteurHours;
 let compteurMinutes;
 let compteurSeconds;
 
-let createTimer = new Time(startButton, pauseButton, resetButton, compteurSeconds, compteurMinutes, compteurHours, compteurDays)
-createTimer
+let createTimer = new Time(startButton, pauseButton, resetButton)
+
 
 startButton.addEventListener("click", () => {
     days.value = "";
