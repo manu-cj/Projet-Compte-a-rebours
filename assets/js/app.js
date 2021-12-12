@@ -12,29 +12,38 @@ let compteur = 0;
 function start() {
 
     time = setInterval(() => {
-        if (userSeconds >= 0){
-            compteARebours.innerHTML = '00 : ' + userMinutes + ' : ' + userSeconds;
+        if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= 0){
+            compteARebours.innerHTML = '0' + compteurHours + ': ' + compteurMinutes + ': 0' + compteurSeconds;
+
         }
-        else if ( userMinutes >= 0) {
-            compteARebours.innerHTML = '00 : ' + userMinutes + userSeconds;
+
+
+        compteurSeconds--;
+
+
+
+        if (compteurSeconds === -1) {
+            compteurMinutes--
+            compteurSeconds = 60;
         }
-        userSeconds--
-        if (userSeconds === 0) {
-            userMinutes--
-            userSeconds = 60;
+        if (compteurMinutes === -1) {
+            compteurHours--
+            compteurMinutes = 60;
         }
+
+
         }, 1000)
 }
 
-let userHours;
-let userMinutes;
-let userSeconds;
+let compteurHours;
+let compteurMinutes;
+let compteurSeconds;
 
 startButton.addEventListener("click", () => {
-    userHours = parseInt(document.querySelector("#heures").value);
-    userMinutes = parseInt(document.querySelector("#minutes").value);
-    userSeconds = parseInt(document.querySelector("#secondes").value);
-    console.log(userHours);
+    compteurHours = parseInt(document.querySelector("#heures").value);
+    compteurMinutes = parseInt(document.querySelector("#minutes").value);
+    compteurSeconds = parseInt(document.querySelector("#secondes").value);
+    console.log(compteurHours);
 })
 
 
