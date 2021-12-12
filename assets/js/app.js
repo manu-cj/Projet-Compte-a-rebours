@@ -14,6 +14,18 @@ function start() {
         if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= -1 && compteurDays >= 0){
             compteARebours.innerHTML = compteurDays +' jours 0' + compteurHours + ' heures 0' + compteurMinutes + ' minutes 0' + compteurSeconds;
         }
+       if (compteurSeconds >= 61) {
+           compteurSeconds -=61;
+            compteurMinutes+=1
+        }
+        if (compteurMinutes >= 61) {
+            compteurMinutes -=61;
+            compteurHours+=1
+        }
+        if (compteurHours >= 25) {
+            compteurHours -=25;
+            compteurDays+=1
+        }
         compteurSeconds--;
 
         if (compteurSeconds === -1) {
