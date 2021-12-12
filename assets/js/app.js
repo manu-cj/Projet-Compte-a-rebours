@@ -14,7 +14,6 @@ function start() {
     time = setInterval(() => {
         if (compteurSeconds >= -1 && compteurMinutes >= -1 && compteurHours >= 0){
             compteARebours.innerHTML = '0' + compteurHours + ': ' + compteurMinutes + ': 0' + compteurSeconds;
-
         }
 
 
@@ -30,8 +29,6 @@ function start() {
             compteurHours--
             compteurMinutes = 60;
         }
-
-
         }, 1000)
 }
 
