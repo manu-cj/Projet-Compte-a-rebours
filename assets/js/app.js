@@ -9,7 +9,7 @@ let resetButton = document.getElementById('reset');
 
 let compteARebours = document.getElementById('compteARebours');
 
-let Time = function (start, pause, reset, secondes, minutes, hours) {
+let Time = function (startButton, pauseButton, resetButton) {
     function start() {
 
         time = setInterval(() => {
